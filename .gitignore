@@ -1,0 +1,9 @@
+*/target
+*/node_modules
+
+python/bin*
+python/lib*
+*/venv/
+*/env/
+*/build/
+*/dist/
