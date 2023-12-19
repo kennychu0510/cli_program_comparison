@@ -1,6 +1,7 @@
-# CLI Program for checking version of hago.apk
+# Benchmarking a simple CLI program
 
 * Implemented in javascript, python and rust
+* Program reads a file as a zip and extract a certain string
 
 ## **Benchmark**
 
