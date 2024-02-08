@@ -3,7 +3,7 @@ import sys
 import zipfile
 
 apk_file_path = sys.argv[1]
-version_pattern = r"2\.3\.(\d+)"
+version_pattern = r"d+\.d+\.(\d+)"
 
 with zipfile.ZipFile(apk_file_path, 'r') as zip_ref:
   myHealthBundlePath = "assets/myhealth.bundle"

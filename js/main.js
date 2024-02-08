@@ -8,7 +8,7 @@ if (!apkFilePath) {
   console.error("Usage: node main.js <path to apk file>");
   process.exit();
 }
-const versionPattern = /2\.3\.(\d+)/;
+const versionPattern = /d+\.d+\.(\d+)/;
 fs.readFile(apkFilePath, (err, data) => {
   if (err) {
     console.error(err);

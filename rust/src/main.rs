@@ -2,7 +2,6 @@ use std::env;
 use std::fs::File;
 use std::io::Read;
 use zip::read::ZipArchive;
-use regex::Regex;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -24,16 +23,19 @@ fn main() {
         let file_name = file.name().to_owned();
         if file_name == "assets/myhealth.bundle" {
             let mut contents = Vec::new();
-            file.read_to_end(&mut contents).expect("Failed to read file contents");
+            file.read_to_end(&mut contents)
+                .expect("Failed to read file contents");
             let contents_str = String::from_utf8_lossy(&contents);
 
-            let version_pattern = r"2\.3\.(\d+)";
+            let version_pattern = r#"VERSION:"(\d+\.\d+\.\d+-sit\.\d+)""#;
             if let Some(captures) = regex::Regex::new(version_pattern)
                 .unwrap()
                 .captures(&contents_str)
             {
                 let version_number = captures.get(1).unwrap().as_str();
                 println!("Version number: {}", version_number);
+            } else {
+                println!("Failed to find version number");
             }
         }
     }
